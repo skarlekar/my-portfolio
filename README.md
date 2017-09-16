@@ -2,9 +2,34 @@
 Application to create my professional portfolio dynamically.
 
 ## Technologies Used
-AWS
-AWS Lambda
-AWS CodeStar
-ReactJS
+
+>     AWS
+>     AWS Lambda
+>     AWS CodeStar
+>     ReactJS
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
