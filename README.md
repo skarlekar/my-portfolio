@@ -7,6 +7,9 @@ Application to create my professional portfolio dynamically.
 >     AWS Lambda
 >     AWS CodeStar
 >     ReactJS
+>     CSS
+>     Font Awesome
+>     Google Fonts
 
  
 
