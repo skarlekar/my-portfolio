@@ -33,6 +33,9 @@ def lambda_handler(event, context):
                 portfolio_bucket.Object(nm).Acl().put(ACL='public-read')
         print "Code pushed!"
         topic.publish(Subject="Portfolio code pushed successfully!", Message="Portfolio code pushed from portfoliobuild.karlekar.com to portfolio.karlekar.com")
+        if job:
+            codepipeline = boto3.client('codepipeline')
+            codepipeline.put_job_success_result(jobId=job["id"])
     except:
         topic.publish(Subject="Portfolio code push failed!", Message="Portfolio code push from portfoliobuild.karlekar.com to portfolio.karlekar.com failed. Please review the logs.")
         raise
