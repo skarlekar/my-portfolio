@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Babel Demo</title>
+  </head>
+  <body>
+    <main>
+      <style media="screen">
+        .errorbox{
+          border: 1px solid red;
+          background-color: #eeaaaa;
+          margin: 1em;
+          padding: 2em;
+        }
+        .hiddenbox{
+          display: none;
+        }
+        .displaybox{
+          border: 1px solid blue;
+          background-color: #aaaaee;
+          margin: 1em;
+          padding: 2em;
+        }
+      </style>
+
+      <label id="mylabel">Name:<input id="my-text-box" type="text" name="" value=""></label>
+      <button type="button" id="submit">Submit</button>
+
+      <div id="content"></div>
+
+      <div id="error" class="hiddenbox">
+          You need to enter a name in the box above and hit submit!
+      </div>
+    </main>
+      <script src="https://unpkg.com/babel-standalone">
+      </script>
+      <script type="text/babel" data-presets="latest">
+          const getMessage = (name) => `Welcome to Javascript, ${name}!`;
+          const button = document.getElementById('submit');
+
+          button.addEventListener('click', (evnt) => {
+            let displayArea = document.getElementById('content');
+            let errorArea = document.getElementById('error');
+            displayArea.className = "hiddenbox";
+            errorArea.className = "hiddenbox";
+
+            let val = document.getElementById('my-text-box').value;
+            if (val.length > 1) {
+              displayArea.className = "displaybox";
+              displayArea.textContent = getMessage(val);
+            } else {
+              errorArea.className = "errorbox";
+            }
+          });
+
+      </script>
+  </body>
+</html>
